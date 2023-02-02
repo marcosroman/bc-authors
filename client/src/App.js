@@ -1,22 +1,14 @@
 import './App.css';
-import Main from './views/Main';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import NewAuthor from './views/NewAuthor';
-import EditAuthor from './views/EditAuthor';
+import AppRoutes from './routes/AppRoutes';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
 			<h1>Favourite authors</h1>
-			<BrowserRouter>
-				<Routes>
-					<Route path="/" element=<Main /> />
-					<Route path="/new" element=<NewAuthor /> />
-					<Route path="/:id/edit" element=<EditAuthor /> />
-				</Routes>
-			</BrowserRouter>
-    </div>
+			<AppRoutes />
+		</div>
   );
 }
 
 export default App;
+
