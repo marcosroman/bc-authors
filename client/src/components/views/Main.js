@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const Main = (props) => {
@@ -49,16 +49,20 @@ const Main = (props) => {
 										<tr key={author._id}>
 											<td>{author.name}</td>
 											<td>
-												<button onClick={(e) => editAuthor(e, author._id)}>Edit</button>
-												<button onClick={(e) => deleteAuthor(e, author._id)}>Delete</button>
+												<button className="edit" 
+									              onClick={(e) =>
+																	editAuthor(e, author._id)}>Edit</button>
+												<button className="delete"
+									              onClick={(e) =>
+																	deleteAuthor(e, author._id)}>Delete</button>
 											</td>
 										</tr>
-									))};
+									))}
 							</tbody>
 						</table>
 					</div>
 			))}
-		</main>
+	</main>
 	);
 }
 

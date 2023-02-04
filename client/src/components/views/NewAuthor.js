@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import AuthorForm from '../AuthorForm';
+import AuthorForm from '../forms/AuthorForm';
 
 const NewAuthor = (props) => {
 	return (

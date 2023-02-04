@@ -60,10 +60,12 @@ const AuthorForm = (props) => {
 
 	return (
 		<form>
-			{errors.map((item,index) => <p key={index}>{item}</p>)}
-			<label htmlFor="name">Name</label>
-			<input name="name" value={name} onChange={(e) => setName(e.target.value)} />
-			<div className="btn">
+			{errors.map((item,index) => <p className="errortext" key={index}>{item}</p>)}
+			<div className="form-input">
+				<label htmlFor="name">Name:</label><br/>
+				<input name="name" value={name} onChange={(e) => setName(e.target.value)} />
+			</div>
+			<div className="buttons">
 				<button onClick={cancelForm}>Cancel</button>
 				<button onClick={submitForm}>Submit</button>
 			</div>
