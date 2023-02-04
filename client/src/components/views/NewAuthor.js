@@ -1,6 +1,5 @@
-import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
-import AuthorForm from '../components/AuthorForm';
+import AuthorForm from '../AuthorForm';
 
 const NewAuthor = (props) => {
 	return (

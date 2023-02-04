@@ -1,6 +1,6 @@
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
-import AuthorForm from '../components/AuthorForm';
+import AuthorForm from '../AuthorForm';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
