@@ -9,6 +9,7 @@ const Main = (props) => {
 	const navigate = useNavigate();
 	const API_BASE_URI = "http://localhost:8000/api/authors";
 
+	// fetch author list and set loaded=true
 	useEffect(() => {
 		axios.get(API_BASE_URI)
 			.then(res => {
@@ -22,7 +23,11 @@ const Main = (props) => {
 	
 	const deleteAuthor = (e,id) => {
 		axios.delete(`${API_BASE_URI}/delete/${id}`)
-			.then(res => setAuthors(authors.filter(author => author._id !== id)));
+			.then(res => removeFromDOM(id));
+	}
+
+	const removeFromDOM = (id) => {
+		setAuthors(authors.filter(a => a._id !== id));
 	}
 
 	return (
@@ -40,18 +45,15 @@ const Main = (props) => {
 								</tr>
 							</thead>
 							<tbody>
-								{authors//.sort( author => author.name )
-									      .map((author, index) => {
-									return (
-										<tr key={index}>
+								{authors.map((author) => (
+										<tr key={author._id}>
 											<td>{author.name}</td>
 											<td>
 												<button onClick={(e) => editAuthor(e, author._id)}>Edit</button>
 												<button onClick={(e) => deleteAuthor(e, author._id)}>Delete</button>
 											</td>
 										</tr>
-									);
-									})}
+									))};
 							</tbody>
 						</table>
 					</div>
