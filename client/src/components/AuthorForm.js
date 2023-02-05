@@ -16,9 +16,6 @@ const AuthorForm = (props) => {
 		} else {
 			setIsEdit(false);
 		}
-		// no se si esta bien usar useEffect,
-		// entiendo que es para fetch cosas fuera de react mas bien,
-		// pero funciona y no se de que otra forma hacer esto ahora
 	}, [props.name]);
 
 	const cancelForm = (e) => {
@@ -35,12 +32,8 @@ const AuthorForm = (props) => {
 		promise
 				.then(res => navigate('/'))
 				.catch(err => {
-					const errorResponse = err.response.data.errors; // Get the errors from err.response.data
-					const errorArr = []; // Define a temp error array to push the messages in
-					for (const key of Object.keys(errorResponse)) { // Loop through all errors and get the messages
-							errorArr.push(errorResponse[key].message)
-					}
-					setErrors(errorArr);
+					const errorsdata = err.response.data.errors;
+					setErrors(Object.keys(errorsdata).map(k => errorsdata[k].message));
         });           
 	}
 
